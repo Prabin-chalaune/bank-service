@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package pb;
+
+import "google/api/annotations.proto";
+import "create_user.proto";
+import "login_user.proto";
+import "protoc-gen-openapiv2/options/annotations.proto";
+
+option go_package = "github.com/prabin/bank-service/pb";
+
+option (grpc.gateway.protoc_gen_openapiv2.options.openapiv2_swagger) = {
+    info: {
+        title: "gobank API";
+        version: "1.1";
+        contact: {
+            name: "bank-service";
+            url: "https://github.com/prabin/bank-service";
+            email: "prabinchalaune@gmail.com";
+        };
+    };
+};
+
+service GoBank {
+    rpc CreateUser(CreateUserRequest) returns (CreateUserResponse) {
+        option (google.api.http) = {
+            post: "/v1/create_user"
+            body: "*"
+        };
+
+        option(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Use this API to create a new user";
+            summary: "Creates a new user";
+        };
+    }
+    rpc LoginUser(LoginUserRequest) returns (LoginUserResponse) {
+        option (google.api.http) = {
+            post: "/v1/login_user"
+            body: "*"
+        };
+
+        option(grpc.gateway.protoc_gen_openapiv2.options.openapiv2_operation) = {
+            description: "Use this API login a user and get access token and refresh token";
+            summary:"Login a user";
+        };
+    }
+}
+
