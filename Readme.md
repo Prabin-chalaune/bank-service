@@ -1,9 +1,6 @@
 
-# Copied
-This banking project written in Golang that allows you to create and manage bank accounts, record balance changes, and perform money transfers between accounts. It provides a set of RESTful HTTP APIs built using the Gin framework and uses PostgreSQL to store account information and transaction history. Docker is used for local development and GitHub Actions for running unit tests automatically.
-
 ### Banking System
-
+This banking project written in Golang that allows you to create and manage bank accounts, record balance changes, and perform money transfers between accounts. It provides a set of RESTful HTTP APIs built using the Gin framework and uses PostgreSQL to store account information and transaction history. Docker is used for local development and GitHub Actions for running unit tests automatically.
 ### Features:
 - User account creation, balance tracking, and transaction history.
 - Advanced features: Concurrent transaction handling with ACID compliance.
